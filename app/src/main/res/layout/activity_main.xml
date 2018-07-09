@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+>
+    <TextView android:layout_width="@dimen/dp_100"
+              android:layout_height="@dimen/dp_30"
+              android:background="#111111"
+              android:gravity="center"
+              android:onClick="onCheck"
+              android:text="@string/select"
+              android:textColor="#ffffff"/>
+    <TextView android:layout_width="@dimen/dp_100"
+              android:layout_height="@dimen/dp_30"
+              android:layout_marginTop="@dimen/dp_20"
+              android:background="#111111"
+
+              android:gravity="center"
+              android:onClick="onBottom"
+              android:text="@string/bottom"
+              android:textColor="#ffffff"/>
+
+    <TextView android:layout_width="@dimen/dp_100"
+              android:layout_height="@dimen/dp_30"
+              android:layout_marginTop="@dimen/dp_20"
+              android:background="#111111"
+              android:gravity="center"
+              android:onClick="onErr"
+              android:text="@string/error"
+              android:textColor="#ffffff"/>
+    <TextView android:layout_width="@dimen/dp_100"
+              android:layout_height="@dimen/dp_30"
+              android:layout_marginTop="@dimen/dp_20"
+              android:background="#111111"
+              android:gravity="center"
+              android:onClick="onCenter"
+              android:text="@string/center"
+              android:textColor="#ffffff"/>
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="check_right_color">#1AB0F0</color>
+    <color name="check_left_color">#666666</color>
+    <color name="check_message_color">#111111</color>
+    <color name="check_title_color">#111111</color>
+    <color name="tips_message_color">#111111</color>
+    <color name="tips_title_color">#111111</color>
+    <color name="tips_btn_color">#1AB0F0</color>
+</resources>
