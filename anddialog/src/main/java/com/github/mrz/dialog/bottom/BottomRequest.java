@@ -15,5 +15,4 @@ public interface BottomRequest extends Request<BottomRequest> {
     BottomRequest normal(BaseDialog.OnBottomDialogLister lister, int layout);
 
 
-
 }

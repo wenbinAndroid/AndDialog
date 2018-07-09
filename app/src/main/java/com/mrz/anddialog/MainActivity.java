@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements BaseDialog.OnChec
 
     public void onCheck(View view) {
         AndDialog.with(this).check().listener(this).layout(R.layout.dialog_common_check).message
-                ("这个是选择框").show();
+                ("这里是内容界面").show();
     }
 
     public void onBottom(View view) {
