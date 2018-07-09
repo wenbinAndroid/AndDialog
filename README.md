@@ -36,6 +36,7 @@ AndDialog.with(this).bottom().listener(this).layout(R.layout.dialog_share).show(
 ![bottom](https://github.com/wenbinAndroid/AndDialog/blob/master/photo/bottom.png "bottom") 
  
 #### 错误提示框
+``` java
 AndDialog.with(this).tips().listener(this).message("这个是错误的提示").btnText("好的").show();
 实现onTipsDialogClick方法执行回调操作
 @Override
@@ -70,5 +71,35 @@ public interface Request<T> {
     void show();
 
 }
+#### 选择对话框接口
+```java
+public interface CheckRequest extends Request<CheckRequest> {
+
+    CheckRequest listener(BaseDialog.OnCheckDialogListener listener);
+
+    CheckRequest title(String title);
+
+    CheckRequest message(String message);
+
+    CheckRequest leftBtnText(String text);
+
+    CheckRequest rightBtnText(String text);
+
+    CheckRequest visibleTitle(boolean show);
+
+    CheckRequest leftBtnTextColor(int color);
+
+    CheckRequest rightBtnTextColor(int color);
+
+    CheckRequest messageColor(int color);
+
+    CheckRequest titleColor(int color);
+
+    CheckRequest normal(BaseDialog.OnCheckDialogListener listener);
+
+    CheckRequest normal(BaseDialog.OnCheckDialogListener listener, int layout);
+
+}
 ```
+
 
