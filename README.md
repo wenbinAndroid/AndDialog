@@ -10,7 +10,7 @@
 AndDialog.with(this).check().listener(this).layout(R.layout.dialog_common_check).message
                 ("这个是选择框").show();
 ```
-[![check]](https://github.com/wenbinAndroid/AndDialog/blob/master/photo/check.png)  
+![check](https://github.com/wenbinAndroid/AndDialog/blob/master/photo/check.png "check")  
 底部弹框
 AndDialog.with(this).bottom().listener(this).layout(R.layout.dialog_share).show();
 
