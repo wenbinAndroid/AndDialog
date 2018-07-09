@@ -15,7 +15,6 @@ Add it in your root build.gradle at the end of repositories:
 		}
 	}
 Step 2. Add the dependency
-
 	dependencies {
 	        implementation 'com.github.wenbinAndroid:AndDialog:1.0.0'
 	}
@@ -26,6 +25,7 @@ Step 2. Add the dependency
 ``` Java
 AndDialog.with(this).check().listener(this).layout(R.layout.dialog_common_check).message
                 ("这里是内容界面").show();
+		
 实现onDialogLeft,onDialogRight 分别为左右两边的点击回调
     @Override
     public void onDialogLeft(int code) {
@@ -42,6 +42,7 @@ AndDialog.with(this).check().listener(this).layout(R.layout.dialog_common_check)
 #### 底部弹框
 ```Java
 AndDialog.with(this).bottom().listener(this).layout(R.layout.dialog_share).show();
+
 实现这个方法,自己加入需要显示的视图
     @Override
     public void onDialogAction(View view, Bundle bundle, int code, final DialogFragment
@@ -54,6 +55,7 @@ AndDialog.with(this).bottom().listener(this).layout(R.layout.dialog_share).show(
 #### 错误提示框
 ``` java
 AndDialog.with(this).tips().listener(this).message("这个是错误的提示").btnText("好的").show();
+
 实现onTipsDialogClick方法执行回调操作
     @Override
     public void onTipsDialogClick(int code) {
