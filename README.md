@@ -8,12 +8,15 @@
 ``` Java
 选择对话框
 AndDialog.with(this).check().listener(this).layout(R.layout.dialog_common_check).message
-                ("这个是选择框").show();
+                ("这里是内容界面").show();
 ```
 ![check](https://github.com/wenbinAndroid/AndDialog/blob/master/photo/check.png "check")  
-底部弹框
-AndDialog.with(this).bottom().listener(this).layout(R.layout.dialog_share).show();
 
+底部弹框
+```Java
+AndDialog.with(this).bottom().listener(this).layout(R.layout.dialog_share).show();
+```
+![check](https://github.com/wenbinAndroid/AndDialog/blob/master/photo/bottom.png "check") 
  
 错误提示框
 AndDialog.with(this).tips().listener(this).message("这个是错误的提示").btnText("好的").show();
