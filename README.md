@@ -11,7 +11,7 @@
 AndDialog.with(this).check().listener(this).layout(R.layout.dialog_common_check).message
                 ("这里是内容界面").show();
 实现onDialogLeft,onDialogRight 分别为左右两边的点击回调
-@Override
+    @Override
     public void onDialogLeft(int code) {
 
     }
@@ -27,7 +27,7 @@ AndDialog.with(this).check().listener(this).layout(R.layout.dialog_common_check)
 ```Java
 AndDialog.with(this).bottom().listener(this).layout(R.layout.dialog_share).show();
 实现这个方法,自己加入需要显示的视图
-@Override
+    @Override
     public void onDialogAction(View view, Bundle bundle, int code, final DialogFragment
             dialogFragment) {
 
@@ -39,7 +39,7 @@ AndDialog.with(this).bottom().listener(this).layout(R.layout.dialog_share).show(
 ``` java
 AndDialog.with(this).tips().listener(this).message("这个是错误的提示").btnText("好的").show();
 实现onTipsDialogClick方法执行回调操作
-@Override
+    @Override
     public void onTipsDialogClick(int code) {
 
     }
@@ -71,7 +71,8 @@ public interface Request<T> {
     void show();
 
 }
-#### 选择对话框接口
+```
+#### 选择对话框
 ```java
 public interface CheckRequest extends Request<CheckRequest> {
 
@@ -101,5 +102,39 @@ public interface CheckRequest extends Request<CheckRequest> {
 
 }
 ```
+#### 底部弹框
+```java
+public interface BottomRequest extends Request<BottomRequest> {
+
+    BottomRequest listener(BaseDialog.OnBottomDialogLister lister);
+
+    BottomRequest normal(BaseDialog.OnBottomDialogLister lister, int layout);
+
+
+}
+````
+#### 提示框
+```java
+public interface TipsRequest extends Request<TipsRequest> {
+    TipsRequest listener(BaseDialog.OnTipsDialogListener listener);
+
+    TipsRequest title(String title);
+
+    TipsRequest btnColor(int color);
+
+    TipsRequest btnText(String text);
+
+    TipsRequest message(String message);
+
+    TipsRequest messageColor(int color);
+
+    TipsRequest titleColor(int color);
+
+    TipsRequest normal(BaseDialog.OnTipsDialogListener listener);
+
+    TipsRequest normal(BaseDialog.OnTipsDialogListener listener, int layout);
+}
+```
+
 
 
