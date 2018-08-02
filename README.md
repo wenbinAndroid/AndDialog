@@ -54,7 +54,7 @@ AndDialog.with(this).bottom().listener(this).layout(R.layout.dialog_share).show(
  
 #### 错误提示框
 ``` java
-AndDialog.with(this).tips().listener(this).message("这个是错误的提示").btnText("好的").show();
+AndDialog.with(this).tips().normal(this).message("这个是错误的提示").btnText("好的").show();
 
 实现onTipsDialogClick方法执行回调操作
     @Override
