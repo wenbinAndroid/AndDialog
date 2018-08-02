@@ -4,6 +4,7 @@
 ### 由于项目里面经常有用到一些弹框的提示,但是UI又不太喜欢MD的风格,就自己封装了这个库,采用链式的结构,使用起来也比较方便,可自定义布局,按钮,文件,动画,这个只是基础功能,后面还会继续修改,暂时就提供了3种简单的风格
 
 
+
 #### 如何引用
 
 ``` 
@@ -19,6 +20,7 @@ Step 2. Add the dependency
 	        implementation 'com.github.wenbinAndroid:AndDialog:1.0.1'
 	}
 ```
+![photo](https://github.com/wenbinAndroid/AndDialog/blob/master/photo/S80802-16210796.gif)
 ### 使用方法  
 #### 选择对话框
 
