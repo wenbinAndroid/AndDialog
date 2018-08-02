@@ -37,7 +37,6 @@ AndDialog.with(this).check().listener(this).layout(R.layout.dialog_common_check)
 
     }
 ```
-![check](https://github.com/wenbinAndroid/AndDialog/blob/master/photo/check.png "check")  
 
 #### 底部弹框
 ```Java
@@ -50,7 +49,6 @@ AndDialog.with(this).bottom().listener(this).layout(R.layout.dialog_share).show(
 
     }
 ```
-![bottom](https://github.com/wenbinAndroid/AndDialog/blob/master/photo/bottom.png "bottom") 
  
 #### 错误提示框
 ``` java
@@ -63,7 +61,6 @@ AndDialog.with(this).tips().listener(this).message("这个是错误的提示").b
     }
    
 ```
-![tips](https://github.com/wenbinAndroid/AndDialog/blob/master/photo/tips.png "tips")
 
 ### 结构部分
 #### 公共接口部分
