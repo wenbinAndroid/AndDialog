@@ -41,12 +41,15 @@ public class MainActivity extends AppCompatActivity implements BaseDialog.OnChec
 
     public void onCenter(View view) {
         AndDialog.with(this).center().animation(DialogData.ANIMATION_FROM_CENTER_TO_CENTER)
+                .listener(this)
+                .code(-1)
                 .layout(R.layout.dialog_common_check).show();
     }
 
     @Override
     public void onDialogAction(View view, Bundle bundle, int code, final DialogFragment
             dialogFragment) {
+        if (code == -1) return;
         RecyclerView rv = view.findViewById(R.id.recycler);
         ShareAdapter adapter = new ShareAdapter(SHARE_TEXT);
         rv.setLayoutManager(new LinearLayoutManager(view.getContext(), LinearLayoutManager

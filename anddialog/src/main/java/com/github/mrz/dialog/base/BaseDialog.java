@@ -13,6 +13,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -187,7 +188,7 @@ public class BaseDialog<T extends Request> extends DialogFragment implements Req
             }
             if (tvTitle != null) {
                 tvTitle.setText(title);
-                tvTitle.setVisibility(isShowTitle ? View.VISIBLE : View.GONE);
+                tvTitle.setVisibility(!TextUtils.isEmpty(title) ? View.VISIBLE : View.GONE);
                 tvTitle.setTextColor(titleColor == 0 ? getTextColor(R.color.tips_title_color) :
                         getTextColor(titleColor));
             }

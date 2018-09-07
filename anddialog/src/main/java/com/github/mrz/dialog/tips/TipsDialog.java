@@ -73,9 +73,7 @@ public class TipsDialog extends BaseDialog<TipsRequest> implements TipsRequest {
 
     @Override
     public TipsRequest normal(OnTipsDialogListener listener, int layout) {
-        listener(listener).animation
-                (DialogData.ANIMATION_FROM_CENTER_TO_CENTER)
-                .layout(layout);
+        listener(listener).layout(layout);
         return this;
     }
 }

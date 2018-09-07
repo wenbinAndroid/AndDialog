@@ -23,6 +23,7 @@ public interface TipsRequest extends Request<TipsRequest> {
 
     TipsRequest titleColor(int color);
 
+
     TipsRequest normal(BaseDialog.OnTipsDialogListener listener);
 
     TipsRequest normal(BaseDialog.OnTipsDialogListener listener, int layout);
