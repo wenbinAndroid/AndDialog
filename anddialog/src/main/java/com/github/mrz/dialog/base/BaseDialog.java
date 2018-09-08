@@ -189,14 +189,19 @@ public class BaseDialog<T extends Request> extends DialogFragment implements Req
             if (tvTitle != null) {
                 tvTitle.setText(title);
                 tvTitle.setVisibility(!TextUtils.isEmpty(title) ? View.VISIBLE : View.GONE);
-                tvTitle.setTextColor(titleColor == 0 ? getTextColor(R.color.tips_title_color) :
-                        getTextColor(titleColor));
+                if (titleColor != 0) {
+
+                    tvTitle.setTextColor(
+                            getTextColor(titleColor));
+                }
             }
             if (tvMessage != null) {
                 tvMessage.setText(message);
-                tvMessage.setTextColor(messageColor == 0 ? getTextColor(R.color
-                        .tips_message_color) :
-                        getTextColor(messageColor));
+                if (messageColor != 0) {
+                    tvMessage.setTextColor(
+                            getTextColor(messageColor));
+                }
+
             }
         }
     }
@@ -210,26 +215,30 @@ public class BaseDialog<T extends Request> extends DialogFragment implements Req
             if (tvTitle != null) {
                 tvTitle.setVisibility(isShowTitle ? View.VISIBLE : View.GONE);
                 tvTitle.setText(title);
-                tvTitle.setTextColor(titleColor == 0 ? getTextColor(R.color.check_title_color) :
-                        getTextColor(titleColor));
-                tvTitle.setTextColor(titleColor == 0 ? getTextColor(R.color.check_title_color) :
-                        getTextColor(titleColor));
+                if (titleColor != 0) {
+                    tvTitle.setTextColor(
+                            getTextColor(titleColor));
+                }
+
             }
             if (tvMessage != null) {
                 tvMessage.setText(message);
             }
-
             if (btnCancel != null) {
                 btnCancel.setText(leftBtnText);
                 btnCancel.setOnClickListener(this);
-                btnCancel.setTextColor(leftTextColor == 0 ? getTextColor(R.color.check_left_color) :
-                        getTextColor(leftTextColor));
+                if (leftTextColor != 0) {
+                    btnCancel.setTextColor(
+                            getTextColor(leftTextColor));
+                }
+
             }
             if (btnEnter != null) {
                 btnEnter.setText(rightBtnText);
-                btnEnter.setTextColor(rightTextColor == 0 ? getTextColor(R.color
-                        .check_right_color) :
-                        getTextColor(rightTextColor));
+                if (rightTextColor != 0) {
+                    btnEnter.setTextColor(
+                            getTextColor(rightTextColor));
+                }
                 btnEnter.setOnClickListener(this);
             }
         }

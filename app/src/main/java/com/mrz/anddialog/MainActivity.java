@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements BaseDialog.OnChec
     }
 
     public void onErr(View view) {
-        AndDialog.with(this).tips().normal(this).message("这个是错误的提示").btnText("好的").show();
+        AndDialog.with(this).tips().normal(this).message("这个是错误的提示").title("误提示").btnText("好的").show();
     }
 
     public void onCenter(View view) {

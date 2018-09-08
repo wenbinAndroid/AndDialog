@@ -90,8 +90,7 @@ public class CheckDialog extends BaseDialog<CheckRequest> implements CheckReques
 
     @Override
     public CheckRequest normal(OnCheckDialogListener listener, int layout) {
-        listener(listener).animation
-                (DialogData.ANIMATION_FROM_CENTER_TO_CENTER)
+        listener(listener)
                 .layout(layout);
         return this;
     }
