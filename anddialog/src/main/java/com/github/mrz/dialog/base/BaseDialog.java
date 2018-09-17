@@ -26,6 +26,8 @@ import android.widget.TextView;
 import com.github.mrz.dialog.R;
 import com.github.mrz.dialog.data.DialogData;
 
+import java.lang.ref.WeakReference;
+
 
 /**
  * 作者 Mrz
@@ -59,16 +61,19 @@ public class BaseDialog<T extends Request> extends DialogFragment implements Req
     protected OnTipsDialogListener mOnTipsDialogListener;
     protected OnCenterDialogListener mOnCenterDialogListener;
     protected Bundle mBundle;
+    protected WeakReference<Activity> mActivityWeakReference;
     protected Activity mActivity;
     protected T request;
     protected DialogData.Type type;
 
     public BaseDialog(Activity activity) {
-        this.mActivity = activity;
+        mActivityWeakReference = new WeakReference<>(activity);
+        this.mActivity = mActivityWeakReference.get();
     }
 
     public BaseDialog(Activity activity, DialogData.Type type) {
-        this.mActivity = activity;
+        mActivityWeakReference = new WeakReference<>(activity);
+        this.mActivity = mActivityWeakReference.get();
         this.type = type;
     }
 
