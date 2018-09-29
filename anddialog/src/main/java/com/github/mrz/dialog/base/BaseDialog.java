@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -336,6 +337,17 @@ public class BaseDialog<T extends Request> extends DialogFragment implements Req
     @Override
     public void show() {
         show(mActivity.getFragmentManager(), "");
+    }
+
+
+    @Override
+    public void show(FragmentManager manager, String tag) {
+        try {
+            super.show(manager, tag);
+        }catch (Exception e){
+
+        }
+
     }
 
     @Override
