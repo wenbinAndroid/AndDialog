@@ -1,78 +1,51 @@
 package com.github.mrz.dialog;
 
-import android.app.Activity;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 
-import com.github.mrz.dialog.base.AndDialogImpl;
-import com.github.mrz.dialog.bottom.BottomDialog;
-import com.github.mrz.dialog.bottom.BottomRequest;
-import com.github.mrz.dialog.center.CenterDialog;
-import com.github.mrz.dialog.center.CenterRequest;
-import com.github.mrz.dialog.check.CheckDialog;
-import com.github.mrz.dialog.check.CheckRequest;
-import com.github.mrz.dialog.data.DialogData;
-import com.github.mrz.dialog.tips.TipsDialog;
-import com.github.mrz.dialog.tips.TipsRequest;
-
-import java.lang.ref.WeakReference;
+import com.github.mrz.dialog.request.AndDialogRequest;
+import com.github.mrz.dialog.request.BottomRequest;
+import com.github.mrz.dialog.request.CenterRequest;
+import com.github.mrz.dialog.request.CheckRequest;
+import com.github.mrz.dialog.request.TipsRequest;
 
 /**
- * by mrz
- * date  2018/6/14 16:01
+ * @author Mrz
+ * @date 2018/10/29 13:54
  */
+public class AndDialog implements AndDialogRequest {
 
-public class AndDialog implements AndDialogImpl {
+    private AppCompatActivity mActivity;
 
-    private static WeakReference<Activity> mActivityWeakReference;
-    private static AndDialog mInstant;
-
-    public static AndDialog with(Activity activity) {
-        if (mInstant == null) {
-            synchronized (AndDialog.class) {
-                if (mInstant == null) {
-                    mInstant = new AndDialog();
-                }
-            }
-        }
-        mActivityWeakReference = new WeakReference<Activity>(activity);
-        return mInstant;
+    private AndDialog(AppCompatActivity activity) {
+        this.mActivity = activity;
     }
-
 
     public static AndDialog with(Fragment fragment) {
-        return with(fragment.getActivity());
+        return new AndDialog((AppCompatActivity) fragment.getActivity());
     }
 
-    /**
-     * 设置共用动画
-     *
-     * @param location  位置
-     * @param animation 动画
-     */
-    protected static void common(int location, int animation) {
-
-
+    public static AndDialog with(AppCompatActivity activity) {
+        return new AndDialog(activity);
     }
 
     @Override
     public BottomRequest bottom() {
-        return new BottomDialog(mActivityWeakReference.get(), DialogData.Type.bottom);
+        return new BottomRequest(mActivity);
     }
 
     @Override
     public CheckRequest check() {
-        return new CheckDialog(mActivityWeakReference.get(), DialogData.Type.center);
+        return new CheckRequest(mActivity);
     }
 
     @Override
     public TipsRequest tips() {
-        return new TipsDialog(mActivityWeakReference.get(), DialogData.Type.center);
+        return new TipsRequest(mActivity);
     }
 
     @Override
     public CenterRequest center() {
-        return new CenterDialog(mActivityWeakReference.get(), DialogData.Type.center);
+        return new CenterRequest(mActivity);
     }
-
-
 }

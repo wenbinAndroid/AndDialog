@@ -1,22 +1,22 @@
 package com.mrz.anddialog;
 
-import android.app.DialogFragment;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.github.mrz.dialog.AndDialog;
-import com.github.mrz.dialog.base.BaseDialog;
-import com.github.mrz.dialog.data.DialogData;
+import com.github.mrz.dialog.listener.CheckLeftListener;
+import com.github.mrz.dialog.listener.CheckRightListener;
+import com.github.mrz.dialog.listener.OnDialogListner;
+import com.github.mrz.dialog.listener.TipsListener;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements BaseDialog.OnCheckDialogListener,
-        BaseDialog.OnTipsDialogListener, BaseDialog.OnBottomDialogLister, BaseDialog
-                .OnCenterDialogListener {
+public class MainActivity extends AppCompatActivity implements OnDialogListner {
     //分享的平台文字
     public static final List<String> SHARE_TEXT = Arrays.asList("朋友圈", "微信好友", "QQ好友", "QQ空间");
 
@@ -27,56 +27,44 @@ public class MainActivity extends AppCompatActivity implements BaseDialog.OnChec
     }
 
     public void onCheck(View view) {
-        AndDialog.with(this).check().listener(this).layout(R.layout.dialog_common_check).message
-                ("这里是内容界面").show();
+        AndDialog.with(this).check().setTitle(R.id.tv_check_title, "这里是标题").setContent(R.id
+                .tv_check_message, "不知道哦啊要谢什么内容").setLeftText(R.id
+                .btn_check_cancel, "取消2", new CheckLeftListener() {
+            @Override
+            public void leftClick(int requestCode) {
+
+            }
+        }).setRightText(R.id.btn_check_enter, "确定2", new CheckRightListener() {
+            @Override
+            public void rightClick(int requestCode) {
+
+            }
+        }).setLayout(R.layout.dialog_common_check).setCancelable(false).setCanceledOnTouchOutside
+                (true).show();
     }
 
     public void onBottom(View view) {
-        AndDialog.with(this).bottom().listener(this).layout(R.layout.dialog_share).show();
+        AndDialog.with(this).bottom().setBottomListener(this).requestCode(1).setLayout(R.layout
+                .dialog_share)
+                .show();
     }
 
     public void onErr(View view) {
-        AndDialog.with(this).tips().normal(this).message("这个是错误的提示").title("误提示").btnText("好的").show();
-    }
-
-    public void onCenter(View view) {
-        AndDialog.with(this).center().animation(DialogData.ANIMATION_FROM_CENTER_TO_CENTER)
-                .listener(this)
-                .code(-1)
-                .layout(R.layout.dialog_common_check).show();
-    }
-
-    @Override
-    public void onDialogAction(View view, Bundle bundle, int code, final DialogFragment
-            dialogFragment) {
-        if (code == -1) return;
-        RecyclerView rv = view.findViewById(R.id.recycler);
-        ShareAdapter adapter = new ShareAdapter(SHARE_TEXT);
-        rv.setLayoutManager(new LinearLayoutManager(view.getContext(), LinearLayoutManager
-                .HORIZONTAL, false));
-        rv.setAdapter(adapter);
-        view.findViewById(R.id.tv_cancel).setOnClickListener(new View
-                .OnClickListener() {
+        AndDialog.with(this).tips().setTitle(R.id.tv_tips_title, "错误标题").setTipsContent(R.id
+                .tv_tips_message, "这里是内容信息").setTipsBtnText(R.id
+                .btn_tips_enter, "知道了3", new TipsListener() {
             @Override
-            public void onClick(View view) {
-                dialogFragment.dismiss();
+            public void onTipsClick(int requestCode) {
+
             }
-        });
+        }).setLayout(R.layout.dialog_common_tips).show();
     }
+
 
     @Override
-    public void onTipsDialogClick(int code) {
-
+    public void onDialogAction(DialogFragment dialogFragment, View view, int code) {
+        RecyclerView rv = view.findViewById(R.id.recycler);
+        rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        rv.setAdapter(new ShareAdapter(SHARE_TEXT));
     }
-
-    @Override
-    public void onDialogLeft(int code) {
-
-    }
-
-    @Override
-    public void onDialogRight(int code) {
-
-    }
-
 }

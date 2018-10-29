@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_check_dialog_bg"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_tips_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:gravity="center"
+        android:textColor="@color/tips_title_color"
+        android:textSize="@dimen/sp_17"
+        android:visibility="gone"
+        tools:text="" />
+
+    <TextView
+        android:id="@+id/tv_tips_message"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_85"
+        android:layout_marginLeft="@dimen/dp_6"
+        android:layout_marginRight="@dimen/dp_6"
+        android:gravity="center"
+        android:maxLines="3"
+        android:textColor="@color/tips_message_color"
+        android:textSize="@dimen/sp_17"
+        tools:text="adas" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0_5"
+        android:background="#f1f2f6" />
+
+    <Button
+        android:id="@+id/btn_tips_enter"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:background="@drawable/select_tips_dialog_button"
+        android:text="@string/anddialog_enter"
+        android:textColor="@color/tips_btn_color"
+        android:textSize="@dimen/sp_17"
+        android:textStyle="bold" />
+</LinearLayout>

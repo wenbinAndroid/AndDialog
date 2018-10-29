@@ -33,12 +33,5 @@
               android:onClick="onErr"
               android:text="@string/error"
               android:textColor="#ffffff"/>
-    <TextView android:layout_width="@dimen/dp_100"
-              android:layout_height="@dimen/dp_30"
-              android:layout_marginTop="@dimen/dp_20"
-              android:background="#111111"
-              android:gravity="center"
-              android:onClick="onCenter"
-              android:text="@string/center"
-              android:textColor="#ffffff"/>
+
 </LinearLayout>
