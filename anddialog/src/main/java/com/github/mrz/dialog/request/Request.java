@@ -8,6 +8,8 @@ import com.github.mrz.dialog.listener.OnDialogListner;
 import com.github.mrz.dialog.listener.TipsListener;
 import com.github.mrz.dialog.type.DialogType;
 
+import java.lang.ref.WeakReference;
+
 /**
  * @author Mrz
  * @date 2018/10/29 13:54
@@ -19,7 +21,7 @@ public abstract class Request<T> {
 
     public Request(AppCompatActivity activity) {
         mBuilder = new Builder();
-        mBuilder.mActivity = activity;
+        mBuilder.mActivity = new WeakReference<>(activity);
     }
 
     public abstract T setTheme(int theme);
@@ -45,7 +47,7 @@ public abstract class Request<T> {
     public static class Builder {
         //common
         public int theme;
-        public AppCompatActivity mActivity;
+        public WeakReference<AppCompatActivity> mActivity;
         public boolean isCancelable = true;
         public boolean isCancelabledOnTouchOutside;
         public float width = 0.8f;

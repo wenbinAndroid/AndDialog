@@ -121,7 +121,8 @@ public class BaseDialog extends DialogFragment {
                     }
                 }
             });
-        }  if (mBuilder.leftBtnID != 0) {
+        }
+        if (mBuilder.leftBtnID != 0) {
             Button leftBtn = mView.findViewById(mBuilder.leftBtnID);
             leftBtn.setText(mBuilder.leftText);
             leftBtn.setOnClickListener(new View.OnClickListener() {
@@ -133,10 +134,12 @@ public class BaseDialog extends DialogFragment {
                     }
                 }
             });
-        }  if (mBuilder.tvContentID != 0) {
+        }
+        if (mBuilder.tvContentID != 0) {
             TextView tvContent = mView.findViewById(mBuilder.tvContentID);
             tvContent.setText(mBuilder.content);
-        }  if (mBuilder.tvTitleId != 0) {
+        }
+        if (mBuilder.tvTitleId != 0) {
             TextView tvTitle = mView.findViewById(mBuilder.tvTitleId);
             tvTitle.setVisibility(mBuilder.isTitleVisable ? View.VISIBLE : View.GONE);
             tvTitle.setText(mBuilder.title);
@@ -261,6 +264,7 @@ public class BaseDialog extends DialogFragment {
     @Override
     public void dismiss() {
         super.dismiss();
+        mBuilder.mActivity.clear();
         mBuilder = null;
         mView = null;
         mContext = null;
