@@ -1,8 +1,8 @@
 package com.github.mrz.dialog.request;
 
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 
+import com.github.mrz.dialog.BaseDialog;
 import com.github.mrz.dialog.listener.CheckLeftListener;
 import com.github.mrz.dialog.listener.CheckRightListener;
 import com.github.mrz.dialog.listener.OnDialogListner;
@@ -35,7 +35,7 @@ public abstract class Request<T> {
 
     public abstract T setLayout(int layout);
 
-    public abstract DialogFragment show();
+    public abstract BaseDialog show();
 
     public abstract void setAnimation(int animation);
 

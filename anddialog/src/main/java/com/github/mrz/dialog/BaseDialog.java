@@ -264,7 +264,7 @@ public class BaseDialog extends DialogFragment {
 
     }
 
-    public DialogFragment show(FragmentManager manager) {
+    public BaseDialog show(FragmentManager manager) {
         show(manager, "");
         return this;
     }

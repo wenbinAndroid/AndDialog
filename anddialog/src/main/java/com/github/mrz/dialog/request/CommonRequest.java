@@ -63,7 +63,7 @@ public abstract class CommonRequest<T> extends Request<T> {
     }
 
     @Override
-    public DialogFragment show() {
+    public BaseDialog show() {
         return new BaseDialog(mBuilder).show(mBuilder.mActivity.get().getSupportFragmentManager());
     }
 
