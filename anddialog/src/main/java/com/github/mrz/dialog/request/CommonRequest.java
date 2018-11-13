@@ -1,5 +1,6 @@
 package com.github.mrz.dialog.request;
 
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 
 import com.github.mrz.dialog.BaseDialog;
@@ -62,8 +63,8 @@ public abstract class CommonRequest<T> extends Request<T> {
     }
 
     @Override
-    public void show() {
-        new BaseDialog(mBuilder).show(mBuilder.mActivity.get().getSupportFragmentManager(), "");
+    public DialogFragment show() {
+        return new BaseDialog(mBuilder).show(mBuilder.mActivity.get().getSupportFragmentManager());
     }
 
 }

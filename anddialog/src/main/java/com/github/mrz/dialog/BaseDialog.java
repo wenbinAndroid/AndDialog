@@ -69,7 +69,7 @@ public class BaseDialog extends DialogFragment {
             } else if ((mDialogType == DialogType.TIPS || mDialogType == DialogType.CENTER ||
                     mDialogType == DialogType
                             .CHECK)) {
-                //中间弹出
+                //中间弹出center
                 setStyle(0, R.style.CenterDialog);
             }
         } else {
@@ -99,6 +99,9 @@ public class BaseDialog extends DialogFragment {
         }
     }
 
+    public void refreshData() {
+        initData();
+    }
 
     private void bottomOrCenter() {
         OnDialogListner listner = mBuilder.mOnDialogListner;
@@ -259,6 +262,11 @@ public class BaseDialog extends DialogFragment {
 
         }
 
+    }
+
+    public DialogFragment show(FragmentManager manager) {
+        show(manager, "");
+        return this;
     }
 
     @Override
